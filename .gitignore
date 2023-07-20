@@ -1,2 +1,3 @@
-/bin/
-/src/com/github/jmsmarcelo/topmovies/head/Api.java
+bin/
+src/com/github/jmsmarcelo/topmovies/head/Api.java
+.gitignore

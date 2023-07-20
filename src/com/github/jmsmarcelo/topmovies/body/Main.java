@@ -23,6 +23,8 @@ public class Main {
 		HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 		List<String> titles = new ArrayList<String>();
 		List<String> urlImages = new ArrayList<String>();
+		List<String> releaseDates = new ArrayList<String>();
+		List<String> voteAverages = new ArrayList<String>();
 		Pattern.compile("\"title\":\"([^\"]*)\",", 8)
 			.matcher(response.body()).replaceAll(i -> {
 					titles.add(i.group(1));
@@ -30,10 +32,23 @@ public class Main {
 				});
 		Pattern.compile("\"poster_path\":\"([^\"]*)\",", 8)
 		.matcher(response.body()).replaceAll(i -> {
-				urlImages.add("https://image.tmdb.org/t/p/w500" + i.group(1));
+				urlImages.add(Api.urlImg + i.group(1));
 				return "";
 			});
+		Pattern.compile("\"release_date\":\"([^\"]*)\",", 8)
+		.matcher(response.body()).replaceAll(i -> {
+				releaseDates.add(i.group(1));
+				return "";
+			});
+		Pattern.compile("\"vote_average\":([^\"]*),", 8)
+		.matcher(response.body()).replaceAll(i -> {
+				voteAverages.add(i.group(1));
+				return "";
+			});
+		
 		System.out.println(titles);
 		System.out.println(urlImages);
+		System.out.println(releaseDates);
+		System.out.println(voteAverages);
 	}
 }
