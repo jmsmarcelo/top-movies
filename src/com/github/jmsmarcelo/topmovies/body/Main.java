@@ -1,10 +1,12 @@
 package com.github.jmsmarcelo.topmovies.body;
 
-import com.github.jmsmarcelo.topmovies.head.Top20movies;
+import java.io.FileNotFoundException;
+
+import com.github.jmsmarcelo.topmovies.head.HTMLGenerator;
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 	
-		System.out.println(Top20movies.info(0));
+		HTMLGenerator.Generator();
 	}
 }

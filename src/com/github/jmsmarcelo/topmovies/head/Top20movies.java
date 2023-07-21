@@ -6,9 +6,34 @@ import java.util.List;
 
 public class Top20movies {
 	private final static List<Movie> MOVIES = new ArrayList<Movie>();
-	public final static List<Movie> LIST = get();
 	
 	public static List<Movie> get() {
+		set();
+		return MOVIES;
+	}
+	public static Movie get(Integer i) {
+		set();
+		return MOVIES.get(i);
+	}
+	public static String info(Integer i) {
+		String list = "";
+			list += "Título:\t\t" + get(i).getTitle() +
+					"\nURL do Pôster:\t" + get(i).getUrlImage() +
+					"\nNota:\t\t" + get(i).getRating() +
+					"\nAno:\t\t" + get(i).getYear();
+		return list;
+		
+	}
+	public static String info() {
+		String list = "";
+		for(Movie m: get())
+			list += "Título:\t\t" + m.getTitle() +
+					"\nURL do Pôster:\t" + m.getUrlImage() +
+					"\nNota:\t\t" + m.getRating() +
+					"\nAno:\t\t" + m.getYear() + "\n\n";
+		return list;
+	}
+	private static void set() {
 		try {
 			if(MOVIES.size() == 0)
 				for(int i = 0; i < 20; i++)
@@ -16,25 +41,5 @@ public class Top20movies {
 		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
 		}
-		return MOVIES;
-	}
-	public static String info(Integer i) {
-		String list = "";
-			list += "Título:\t\t" + LIST.get(i).getTitle() +
-					"\nURL do Pôster:\t" + LIST.get(i).getUrlImage() +
-					"\nNota:\t\t" + LIST.get(i).getRating() +
-					"\nAno:\t\t" + LIST.get(i).getYear();
-		return list;
-		
-	}
-	public static String info() {
-		String list = "";
-		for(Movie m: LIST)
-			list += "Título:\t\t" + m.getTitle() +
-					"\nURL do Pôster:\t" + m.getUrlImage() +
-					"\nNota:\t\t" + m.getRating() +
-					"\nAno:\t\t" + m.getYear() + "\n\n";
-		return list;
-		
 	}
 }

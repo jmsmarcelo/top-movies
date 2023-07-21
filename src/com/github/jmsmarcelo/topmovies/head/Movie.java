@@ -28,7 +28,7 @@ public class Movie extends Database {
 		return title;
 	}
 	public String getUrlImage() {
-		return urlImage;
+		return Api.urlImg + urlImage;
 	}
 	public String getRating() {
 		return rating;
