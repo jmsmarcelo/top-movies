@@ -16,11 +16,14 @@ public class Top20movies {
 		return MOVIES.get(i);
 	}
 	public static String info(Integer i) {
+		try {
 			return "Título:\t\t" + get(i).getTitle() +
 					"\nURL do Pôster:\t" + get(i).getUrlImage() +
 					"\nNota:\t\t" + get(i).getRating() +
 					"\nAno:\t\t" + get(i).getYear();
-		
+		} catch(IndexOutOfBoundsException e) {
+			return "Só é permitido os 20 melhores (0-19)";
+		}
 	}
 	public static String info() {
 		String list = "";

@@ -13,7 +13,7 @@ public class Movie extends Database {
 	
 	
 	/**
-	 * @param i	referencia o rank do filme
+	 * @param i	referencia o rank do filme (Os 20 melhores, 0-19)
 	 * utilizei apenas os 20 melhores para não sobrecarregar a API
 	 * 
 	 * Optei pelo construtor padrão para facilitar na criação e adição do Objeto na Lista
