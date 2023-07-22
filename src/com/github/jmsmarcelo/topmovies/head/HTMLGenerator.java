@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 public class HTMLGenerator {
-	
 	public static void Generator() {
 		try (PrintWriter fileHTML = new PrintWriter("index.html")) {
 			fileHTML.println("<!DOCTYPE html>");

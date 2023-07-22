@@ -16,28 +16,23 @@ public class Top20movies {
 		return MOVIES.get(i);
 	}
 	public static String info(Integer i) {
-		String list = "";
-			list += "Título:\t\t" + get(i).getTitle() +
+			return "Título:\t\t" + get(i).getTitle() +
 					"\nURL do Pôster:\t" + get(i).getUrlImage() +
 					"\nNota:\t\t" + get(i).getRating() +
 					"\nAno:\t\t" + get(i).getYear();
-		return list;
 		
 	}
 	public static String info() {
 		String list = "";
-		for(Movie m: get())
-			list += "Título:\t\t" + m.getTitle() +
-					"\nURL do Pôster:\t" + m.getUrlImage() +
-					"\nNota:\t\t" + m.getRating() +
-					"\nAno:\t\t" + m.getYear() + "\n\n";
+		for(int i = 0; i < get().size(); i++)
+			list += info(i) + "\n\n";
 		return list;
 	}
 	private static void set() {
 		try {
 			if(MOVIES.size() == 0)
 				for(int i = 0; i < 20; i++)
-			MOVIES.add(new Movie(i));
+					MOVIES.add(new Movie(i));
 		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
 		}
