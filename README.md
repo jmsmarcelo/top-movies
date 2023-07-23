@@ -4,7 +4,7 @@ Consumindo a API de filmes e criando uma página HTML de exibição
 ![image](https://github.com/jmsmarcelo/top-movies-java/assets/32857346/952ebe41-6f15-4429-a8aa-040dc316ab5d)
 # Os Desafios são:
 - [x] DIA 1
-  - Já no primeiro dia, você vai fazer o seu código Java consumir a API ~~do IMDB~~(utilizei do TMDB, buscar os top ~~250~~(utilizei somente o top 20) filmes da lista ~~deles~~ e imprimir o JSON correspondente no console.
+  - Já no primeiro dia, você vai fazer o seu código Java consumir a API ~~do IMDB~~(utilizei do TMDB), buscar os top ~~250~~(utilizei somente o top 20) filmes da lista ~~deles~~ e imprimir o JSON correspondente no console.
 - [x] DIA 2
   - Nesse dia, você irá parsear a resposta JSON obtida a partir do, ~~IMDB~~,TMDB para extrair as suas informações e atributos (como título, pôster, nota, etc).
 - [x] DIA 3
