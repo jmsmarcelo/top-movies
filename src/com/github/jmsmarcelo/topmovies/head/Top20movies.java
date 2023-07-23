@@ -1,6 +1,5 @@
 package com.github.jmsmarcelo.topmovies.head;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,10 +16,10 @@ public class Top20movies {
 	}
 	public static String info(Integer i) {
 		try {
-			return "Título:\t\t" + get(i).getTitle() +
-					"\nURL do Pôster:\t" + get(i).getUrlImage() +
-					"\nNota:\t\t" + get(i).getRating() +
-					"\nAno:\t\t" + get(i).getYear();
+			return "Título:\t\t" + get(i).getTitle()
+					+ "\nURL do Pôster:\t" + get(i).getUrlImage()
+					+ "\nNota:\t\t" + get(i).getRating()
+					+ "\nAno:\t\t" + get(i).getYear();
 		} catch(IndexOutOfBoundsException e) {
 			return "Só é permitido os 20 melhores (0-19)";
 		}
@@ -32,12 +31,8 @@ public class Top20movies {
 		return list;
 	}
 	private static void set() {
-		try {
-			if(MOVIES.size() == 0)
-				for(int i = 0; i < 20; i++)
-					MOVIES.add(new Movie(i));
-		} catch (IOException | InterruptedException e) {
-			e.printStackTrace();
-		}
+		if(MOVIES.size() == 0)
+			for(int i = 0; i < 20; i++)
+				MOVIES.add(new Movie(i));
 	}
 }

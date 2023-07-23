@@ -1,20 +1,20 @@
 package com.github.jmsmarcelo.topmovies.head;
 
-import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 public class HTMLGenerator {
 	public static void Generator() {
 		try (PrintWriter fileHTML = new PrintWriter("index.html")) {
 			fileHTML.println("<!DOCTYPE html>");
-			fileHTML.println("<html lang=\"pt-BR\">");
+			fileHTML.println("<html lang=\"en\">");
 			fileHTML.println("<head>");
 			fileHTML.println("\t<meta charset=\"UTF-8\">");
 			fileHTML.println("\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
 			fileHTML.println("\t<style>");
 			fileHTML.println("\t\tbody {"
 					+ "\n\t\t\ttext-align: center;"
-					+ "\n\t\t\tbackground-color: gray;\n\t\t}");
+					+ "\n\t\t\tbackground-color: #313131;"
+					+ "\n\t\t\tcolor: white;\n\t\t}");
 			fileHTML.println("\t\tp {\n"
 					+ "\t\t\tmargin-top: 0;\n\t\t}");
 			fileHTML.println("\t\tsection>h1 {\n"
@@ -37,7 +37,7 @@ public class HTMLGenerator {
 			fileHTML.println("</body>");
 			fileHTML.print("</html>");
 			fileHTML.close();
-		} catch (FileNotFoundException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
