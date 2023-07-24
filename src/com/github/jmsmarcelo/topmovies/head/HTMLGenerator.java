@@ -1,10 +1,11 @@
 package com.github.jmsmarcelo.topmovies.head;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 public class HTMLGenerator {
-	public static void Generator() {
-		try (PrintWriter fileHTML = new PrintWriter("index.html")) {
+	public static void Generator(String html, List<Movie> movies) {
+		try (PrintWriter fileHTML = new PrintWriter(html)) {
 			fileHTML.println("<!DOCTYPE html>");
 			fileHTML.println("<html lang=\"en\">");
 			fileHTML.println("<head>");
@@ -26,7 +27,7 @@ public class HTMLGenerator {
 			fileHTML.println("</head>");
 			fileHTML.println("<body>");
 			int rank = 0;
-			for(Movie m: Top20movies.get()) {
+			for(Movie m: movies) {
 				fileHTML.println("\t<section>");
 				fileHTML.println("\t\t<h1><span>#" + ++rank + ".</span> " + m.getTitle() + "</h1>");
 				fileHTML.println("\t\t<img src=\"" + m.getUrlImage() + "\">");

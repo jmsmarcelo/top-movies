@@ -5,8 +5,7 @@ import com.github.jmsmarcelo.topmovies.head.Top20movies;
 
 public class Main {
 	public static void main(String[] args) {
-	
-		HTMLGenerator.Generator();
+		HTMLGenerator.Generator("content.html", Top20movies.get());
 		System.out.println(Top20movies.info());
 	}
 }
