@@ -13,26 +13,26 @@ import java.util.List;
 import java.util.Scanner;
 
 class Database {
-	private static List<HashMap<String, String>> Movies = new ArrayList<HashMap<String, String>>();
+	private List<HashMap<String, String>> movies = new ArrayList<HashMap<String, String>>();
 	@SuppressWarnings("resource")
-	protected Database() {
+	protected Database(String fname) {
 		try {
-			File fileJson = new File("top-movies.json");
+			File fileJson = new File(fname + ".json");
 			if(!fileJson.exists())
-				getJsonToFile();
+				jsonToFile(fname);
 			for(String i: new Scanner(fileJson).nextLine()
 					.replaceAll("^\\{.*:\\[\\{\"?|\\}\\].*\\}$", "").split("\"?\\},\\{\"?")) {
 				HashMap<String, String> tempMap = new HashMap<String, String>();
 				for(String j: i.split("\",\"|\\],\"|,\""))
 					tempMap.put(j.split("\":\"|\":\\[|\":")[0], j.split("\":\"|\":\\[|\":")[1]);
-				Movies.add(tempMap);
+				this.movies.add(tempMap);
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	protected String get(Integer i, String flag) {
-		return Movies.get(i).get(flag);
+		return this.movies.get(i).get(flag);
 	}
 	private HttpResponse<String> getHttpJson() {
 		try {
@@ -48,10 +48,10 @@ class Database {
 			return null;
 		}
 	}
-	private void getJsonToFile() {
+	private void jsonToFile(String fname) {
 		try {
 			FileWriter fileJson;
-			fileJson = new FileWriter("top-movies.json");
+			fileJson = new FileWriter(fname + ".json");
 			fileJson.write(getHttpJson().body());
 			fileJson.close();
 		} catch (Exception e) {

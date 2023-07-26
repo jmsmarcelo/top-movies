@@ -2,7 +2,7 @@ package com.github.jmsmarcelo.topmovies.head;
 /**
  * @author Jose Marcelo
  */
-public class Movie extends Database {
+public class Movie {
 	private final String title;
 	private final String urlImage;
 	private final String rating;
@@ -13,11 +13,11 @@ public class Movie extends Database {
 	 * 
 	 * Optei pelo construtor padrão para facilitar na criação e adição do Objeto na Lista
 	 */
-	protected Movie(int i) {
-		title = super.get(i, "title");
-		urlImage = super.get(i, "poster_path");
-		rating = super.get(i, "vote_average");
-		year = super.get(i, "release_date").replaceAll("^(\\d{4}).*", "$1");
+	protected Movie(Database data, Integer i) {
+		title = data.get(i, "title");
+		urlImage = data.get(i, "poster_path");
+		rating = data.get(i, "vote_average");
+		year = data.get(i, "release_date").replaceAll("^(\\d{4}).*", "$1");
 	}
 	public String getTitle() {
 		return title;

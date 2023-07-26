@@ -3,7 +3,7 @@ package com.github.jmsmarcelo.topmovies.head;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Top20movies {
+public class TopMovies {
 	private final static List<Movie> movies = new ArrayList<Movie>();
 	
 	public static List<Movie> get() {
@@ -31,8 +31,9 @@ public class Top20movies {
 		return list;
 	}
 	private static void set() {
+		Database data = new Database("top-movies-tmdb");
 		if(movies.size() == 0)
 			for(int i = 0; i < 20; i++)
-				movies.add(new Movie(i));
+				movies.add(new Movie(data, i));
 	}
 }
